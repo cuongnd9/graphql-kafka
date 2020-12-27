@@ -17,6 +17,6 @@ yarn install
 yarn start:dev
 ```
 
-### Go to http://0.0.0.0:500 & enjoy it
+### Go to http://0.0.0.0:5000 & enjoy it
 
 ![demo](./images/demo.gif)
