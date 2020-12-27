@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e02eb1da-8ae3-480b-9a63-faa7f48c909d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/schema/chat.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/schema/chat.resolver.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +42,9 @@
       <updated>1608806761542</updated>
       <workItem from="1608806766040" duration="2730000" />
       <workItem from="1608819096448" duration="541000" />
-      <workItem from="1608820360549" duration="2187000" />
+      <workItem from="1608820360549" duration="2313000" />
+      <workItem from="1609000320861" duration="1209000" />
+      <workItem from="1609035855186" duration="2936000" />
     </task>
     <servers />
   </component>
@@ -61,5 +61,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

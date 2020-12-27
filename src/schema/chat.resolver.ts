@@ -9,7 +9,7 @@ const withUnsubscribe = (asyncIterator: any, onCancel: any) => {
     onCancel();
     return asyncReturn ? asyncReturn.call(asyncIterator) : Promise.resolve({
       value: undefined,
-      done: true
+      done: true,
     });
   };
 
@@ -19,10 +19,15 @@ const withUnsubscribe = (asyncIterator: any, onCancel: any) => {
 const kafka = new Kafka({
   clientId: 'my-app',
   brokers: ['0.0.0.0:9092'],
+  retry: {
+    initialRetryTime: 100,
+    retries: 100,
+  },
 });
-const pubsub = new PubSub();
 
-const CHAT_CHANNEL = 'ABC_XYZ';
+const CHAT_CHANNEL = '345049948090';
+
+const pubsub = new PubSub();
 
 let chats = [
   {
@@ -43,6 +48,20 @@ const resolver = {
       content,
       from,
     }: any) => {
+      try {
+        const admin = kafka.admin();
+        await admin.connect();
+        await admin.createTopics({
+          topics: [{ topic: CHAT_CHANNEL }],
+          waitForLeaders: true,
+        });
+        await admin.createPartitions({
+          topicPartitions: [{ topic: CHAT_CHANNEL, count: 10 }],
+        });
+        await admin.disconnect();
+      } catch (e) {
+        // console.log(e);
+      }
       const id = `_${
         Math.random()
           .toString(36)
@@ -74,10 +93,9 @@ const resolver = {
   Subscription: {
     messageSent: {
       subscribe: async () => {
-        const consumer = kafka.consumer({ groupId: 'test-group' });
+        const consumer = kafka.consumer({ groupId: CHAT_CHANNEL });
         await consumer.connect();
-        // await consumer.subscribe({ topic: CHAT_CHANNEL, fromBeginning: true });
-        await consumer.subscribe({ topic: CHAT_CHANNEL });
+        await consumer.subscribe({ topic: CHAT_CHANNEL, fromBeginning: true });
 
         await consumer.run({
           eachMessage: async ({ message }) => {
