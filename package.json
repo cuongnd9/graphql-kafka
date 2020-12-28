@@ -24,14 +24,12 @@
     "apollo-server-express": "^2.16.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "diana-js": "^0.6.0",
     "express": "^4.17.1",
     "graphql": "^15.3.0",
     "graphql-subscriptions": "^1.1.0",
     "graphql-tools": "^6.0.15",
-    "hera-js": "^0.2.0",
-    "juno-js": "^0.0.2",
-    "kafkajs": "^1.14.0",
+    "hera-js": "^0.5.1",
+    "kafkajs": "1.16.0-beta.2",
     "subscriptions-transport-ws": "^0.9.17"
   },
   "devDependencies": {
